@@ -1,0 +1,54 @@
+<mat-card class="mat-elevation-z10">
+  <mat-card-header>
+    
+      <mat-card-title>  @if(id===0){Adicionar}@else{Atualizar} Produtos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" type="text" placeholder="Nome" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="priceInCents"
+          type="number"
+          placeholder="Preço em centavos"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="quantity"
+          type="number"
+          placeholder="Quantidade"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="total"
+          type="number"
+          placeholder="Total"
+        />
+      </mat-form-field>
+      <div class="btns">
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="salvar()"
+          [disabled]="form.invalid"
+        >
+        @if(id===0){Adicionar}@else{Atualizar}
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="limparFormulario()"
+        >Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
